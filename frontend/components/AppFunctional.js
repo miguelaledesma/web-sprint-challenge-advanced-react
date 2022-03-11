@@ -18,7 +18,7 @@ export default function AppFunctional(props) {
   const onSubmit = evt => {
     evt.preventDefault()
     const postPayload = { "x": coordinate.x, "y": coordinate.y, "steps": steps, "email": email}
-    axios.post(URL,postPayload)
+    axios.post('http://localhost:9000/api/result',postPayload)
     .then (resp => {
       setMessage(resp.data.message)
     })
@@ -84,7 +84,7 @@ console.log(setCoordinate)
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">Coordinates ({coordinate.x}, {coordinate.y})</h3>
-        <h3 id="steps">You moved {steps} times</h3>
+        <h3 id="steps">You moved {steps} {steps === 1 ? "time" : "times"}</h3>
       </div>
       <div id="grid">
         <div className= { coordinate.x === 1 && coordinate.y === 1 ? 'square active' : 'square '}>{ coordinate.x === 1 && coordinate.y === 1 ? 'B' : ' '}</div>

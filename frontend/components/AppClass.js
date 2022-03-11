@@ -30,7 +30,7 @@ export default class AppClass extends React.Component {
  
  onSubmit = event => {
   event.preventDefault()
-  const postPayload = { x: this.state.x, y: this.state.y, steps: this.state.steps, "email": this.state.email}
+  const postPayload = { "x": this.state.x, "y": this.state.y, "steps": this.state.steps, "email": this.state.email}
   axios.post(URL,postPayload)
   .then (resp => {
     this.setState({
