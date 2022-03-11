@@ -26,39 +26,24 @@ export default class AppClass extends React.Component {
  }
 
  
- inputSubmit = evt => {
-
-evt.preventDefault()
-
-   axios.post(URL, this.state)
-   .then(resp => {
-     this.setState({
-       ...this.state, 
-       message: resp.data.message, 
-     })
-   })
-   .catch(err => {
-     console.log(err); 
-     if(this.state.email === 'foo@bar.baz'){
-       this.setState({
-         ...this.state, 
-         message: 'foo@bar.baz, **results in a "Forbidden" server error**❗'
-       })
-     } else if(this.state.email === ''){
-       this.setState({
-         ...this.state, 
-         message: 'Ouch: email is required'
-       })
-
-     } else{
-       this.setState({
-         ...this.state, 
-         message: 'Ouch: email must be a valid email'
-       })
-     } 
-   })
- }
-
+ onSubmit = event => {
+  event.preventDefault()
+  const postPayload = { x: this.state.x, y: this.state.y, steps: this.state.steps, "email": this.state.email}
+  axios.post(URL,postPayload)
+  .then (resp => {
+    this.setState({
+      ...this.state, 
+      message: resp.data.message})
+    this.setState({
+      ...this.state, 
+      email: ''})
+  })
+  .catch(err => {
+    this.setState({
+      ...this.setState, 
+      message: err.resp.data.message})
+  })
+}
 
 
 
@@ -71,6 +56,7 @@ evt.preventDefault()
         ...this.state, 
         x: this.state.x -1, 
         steps: this.state.steps +1,
+        message: ''
       })
       : this.setState({
         ...this.state, 
@@ -85,6 +71,7 @@ evt.preventDefault()
         ...this.state, 
         x: this.state.x +1, 
         steps: this.state.steps +1,
+        message: ''
       })
       : this.setState({
         ...this.state, 
@@ -100,6 +87,7 @@ evt.preventDefault()
       ...this.state, 
       y: this.state.y -1, 
       steps: this.state.steps +1,
+      message: ''
     })
     : this.setState({
       ...this.state, 
@@ -115,6 +103,7 @@ evt.preventDefault()
       ...this.state, 
       y: this.state.y +1, 
       steps: this.state.steps +1,
+      message: ''
     })
     : this.setState({
       ...this.state, 
@@ -149,10 +138,12 @@ evt.preventDefault()
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">Coordinates  ({this.state.x}, {this.state.y} ) </h3>
-          <h3 id="steps">You moved {this.state.steps} times</h3>
+          <h3 id="steps">You moved {this.state.steps} {this.state.steps === 1 ? "time" : "times"}</h3>
         </div>
-        <div id="grid">
+        <div id="grid"> 
+        
           <div className= { this.state.x ===1 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===1 && this.state.y === 1 ? 'B' : ''}</div>
+         
           <div className={ this.state.x === 2 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===2 && this.state.y === 1 ? 'B' : ''}</div>
           <div className={ this.state.x === 3 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===3 && this.state.y === 1 ? 'B' : ''}</div>
           <div className={ this.state.x === 1 && this.state.y === 2 ? 'square active' : 'square '}>{this.state.x ===1 && this.state.y === 2 ? 'B' : ''}</div>
@@ -172,9 +163,9 @@ evt.preventDefault()
           <button id="down"onClick = {this.clickDown}>DOWN</button>
           <button id="reset" onClick = {this.clickReset}>reset</button>
         </div>
-        <form>
-          <input id="email" type="email" placeholder="type email" onChange = {this.onChange}></input>
-          <input id="submit" type="submit" onSubmit = {this.inputSubmit} ></input>
+        <form onSubmit = {this.onSubmit}>
+          <input id="email" value = {this.state.email} type="email" placeholder="type email" onChange = {this.onChange}></input>
+          <input id="submit" type="submit"  ></input>
         </form>
       </div>
     )
