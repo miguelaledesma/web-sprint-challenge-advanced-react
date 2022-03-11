@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'; 
 
+const URL = 'http://localhost:9000/api/result'
+
+
 export default class AppClass extends React.Component {
   state = {
     x: 2,
@@ -9,6 +12,58 @@ export default class AppClass extends React.Component {
     email: '', 
     message: ''
   }
+
+
+  
+
+
+
+ onChange = evt => {
+   this.setState({
+     ...this.state, 
+     email: evt.target.value 
+   })
+ }
+
+ 
+ inputSubmit = evt => {
+
+evt.preventDefault()
+
+   axios.post(URL, this.state)
+   .then(resp => {
+     this.setState({
+       ...this.state, 
+       message: resp.data.message, 
+     })
+   })
+   .catch(err => {
+     console.log(err); 
+     if(this.state.email === 'foo@bar.baz'){
+       this.setState({
+         ...this.state, 
+         message: 'foo@bar.baz, **results in a "Forbidden" server error**❗'
+       })
+     } else if(this.state.email === ''){
+       this.setState({
+         ...this.state, 
+         message: 'Ouch: email is required'
+       })
+
+     } else{
+       this.setState({
+         ...this.state, 
+         message: 'Ouch: email must be a valid email'
+       })
+     } 
+   })
+ }
+
+
+
+
+
+
 
   clickLeft = () => {
       this.state.x <= 3 && this.state.x >=2 ?
@@ -118,8 +173,8 @@ export default class AppClass extends React.Component {
           <button id="reset" onClick = {this.clickReset}>reset</button>
         </div>
         <form>
-          <input id="email" type="email" placeholder="type email"></input>
-          <input id="submit" type="submit"></input>
+          <input id="email" type="email" placeholder="type email" onChange = {this.onChange}></input>
+          <input id="submit" type="submit" onSubmit = {this.inputSubmit}></input>
         </form>
       </div>
     )
