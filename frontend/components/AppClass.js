@@ -4,6 +4,8 @@ import axios from 'axios';
 const URL = 'http://localhost:9000/api/result'
 
 
+
+
 export default class AppClass extends React.Component {
   state = {
     x: 2,
@@ -19,9 +21,9 @@ export default class AppClass extends React.Component {
 
 
  onChange = evt => {
+   const {value} = evt.target
    this.setState({
-     ...this.state, 
-     email: evt.target.value 
+     ...this.state, email:value
    })
  }
 
@@ -40,7 +42,7 @@ export default class AppClass extends React.Component {
   })
   .catch(err => {
     this.setState({
-      ...this.setState, 
+      ...this.state, 
       message: err.resp.data.message})
   })
 }
@@ -163,8 +165,8 @@ export default class AppClass extends React.Component {
           <button id="down"onClick = {this.clickDown}>DOWN</button>
           <button id="reset" onClick = {this.clickReset}>reset</button>
         </div>
-        <form onSubmit = {this.onSubmit}>
-          <input id="email" value = {this.state.email} type="email" placeholder="type email" onChange = {this.onChange}></input>
+        <form onSubmit = {this.onSubmit} >
+          <input id="email" onChange = {this.onChange} value = {this.state.email} type="email" placeholder="type email" ></input>
           <input id="submit" type="submit"  ></input>
         </form>
       </div>
