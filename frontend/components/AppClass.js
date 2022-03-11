@@ -163,7 +163,7 @@ evt.preventDefault()
           <div className={ this.state.x === 3 && this.state.y === 3 ? 'square active' : 'square '}>{this.state.x ===3 && this.state.y === 3 ? 'B' : ''}</div>
         </div>
         <div className="info">
-          <h3 id="message"></h3>
+          <h3 id="message">{this.state.message}</h3>
         </div>
         <div id="keypad">
           <button id="left" onClick = {this.clickLeft}>LEFT</button>
@@ -174,7 +174,7 @@ evt.preventDefault()
         </div>
         <form>
           <input id="email" type="email" placeholder="type email" onChange = {this.onChange}></input>
-          <input id="submit" type="submit" onSubmit = {this.inputSubmit}></input>
+          <input id="submit" type="submit" onSubmit = {this.inputSubmit} ></input>
         </form>
       </div>
     )
