@@ -10,6 +10,46 @@ export default class AppClass extends React.Component {
     message: ''
   }
 
+  clickLeft = () => {
+      this.state.x <= 3 && this.state.x >=2 ?
+      this.setState({
+        ...this.state, 
+        x: this.state.x -1, 
+        steps: this.state.steps +1,
+      })
+      : this.setState({
+        ...this.state, 
+        x: this.state.x === 3 ? 2 : this.state.x, 
+        message: `You can't go left`
+      })
+  }
+
+  clickRight = () => { 
+    this.state.x <= 3 && this.state.x >=2 ?
+      this.setState({
+        ...this.state, 
+        x: this.state.x +1, 
+        steps: this.state.steps +1,
+      })
+      : this.setState({
+        ...this.state, 
+        x: this.state.x === 3 ? 3 : this.state.x, 
+        message: `You can't go right`
+      })
+
+  }
+
+  clickUp = () => {
+
+  }
+
+  clickDown = () => {
+
+  }
+
+  clickReset = () => {
+
+  }
 
   
   
@@ -20,7 +60,7 @@ export default class AppClass extends React.Component {
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">Coordinates (2, 2)</h3>
+          <h3 id="coordinates">Coordinates  ({this.state.x}, {this.state.y} ) </h3>
           <h3 id="steps">You moved 0 times</h3>
         </div>
         <div id="grid">
@@ -38,11 +78,11 @@ export default class AppClass extends React.Component {
           <h3 id="message"></h3>
         </div>
         <div id="keypad">
-          <button id="left">LEFT</button>
-          <button id="up">UP</button>
-          <button id="right">RIGHT</button>
-          <button id="down">DOWN</button>
-          <button id="reset">reset</button>
+          <button id="left" onClick = {this.clickLeft}>LEFT</button>
+          <button id="up" onClick = {this.clickUp}>UP</button>
+          <button id="right" onClick = {this.clickRight}>RIGHT</button>
+          <button id="down"onClick = {this.clickDown}>DOWN</button>
+          <button id="reset" onClick = {this.clickReset}>reset</button>
         </div>
         <form>
           <input id="email" type="email" placeholder="type email"></input>
