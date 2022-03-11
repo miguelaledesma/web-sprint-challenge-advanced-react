@@ -40,14 +40,47 @@ export default class AppClass extends React.Component {
   }
 
   clickUp = () => {
+    this.state.y <= 2 && this.state.y >= 1 ?
+    this.setState({
+      ...this.state, 
+      y: this.state.y -1, 
+      steps: this.state.steps +1,
+    })
+    : this.setState({
+      ...this.state, 
+      y: this.state.y === 3 ? 2 : this.state.y, 
+      message: `You can't go up`
+    })
 
   }
 
   clickDown = () => {
+    this.state.y <= 2 && this.state.y >= 1 ?
+    this.setState({
+      ...this.state, 
+      y: this.state.y +1, 
+      steps: this.state.steps +1,
+    })
+    : this.setState({
+      ...this.state, 
+      y: this.state.y === 3 ? 3 : this.state.y, 
+      message: `You can't go down`
+    })
 
   }
 
   clickReset = () => {
+    
+    this.setState({
+      ...this.state, 
+      x: 2,
+    y: 2,
+    steps: 0,
+    email: '', 
+    message: ''
+    })
+     
+    
 
   }
 
