@@ -152,15 +152,15 @@ evt.preventDefault()
           <h3 id="steps">You moved {this.state.steps} times</h3>
         </div>
         <div id="grid">
-          <div className= { this.state.x ===1 && this.state.y === 1 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 2 && this.state.y === 1 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 3 && this.state.y === 1 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 1 && this.state.y === 2 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 2 && this.state.y === 2 ? 'square active' : 'square '}>B</div>
-          <div className={ this.state.x === 3 && this.state.y === 2 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 1 && this.state.y === 3 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 2 && this.state.y === 3 ? 'square active' : 'square '}></div>
-          <div className={ this.state.x === 3 && this.state.y === 3 ? 'square active' : 'square '}></div>
+          <div className= { this.state.x ===1 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===1 && this.state.y === 1 ? 'B' : ''}</div>
+          <div className={ this.state.x === 2 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===2 && this.state.y === 1 ? 'B' : ''}</div>
+          <div className={ this.state.x === 3 && this.state.y === 1 ? 'square active' : 'square '}>{this.state.x ===3 && this.state.y === 1 ? 'B' : ''}</div>
+          <div className={ this.state.x === 1 && this.state.y === 2 ? 'square active' : 'square '}>{this.state.x ===1 && this.state.y === 2 ? 'B' : ''}</div>
+          <div className={ this.state.x === 2 && this.state.y === 2 ? 'square active' : 'square '}>{this.state.x ===2 && this.state.y === 2 ? 'B' : ''}</div>
+          <div className={ this.state.x === 3 && this.state.y === 2 ? 'square active' : 'square '}>{this.state.x ===3 && this.state.y === 2 ? 'B' : ''}</div>
+          <div className={ this.state.x === 1 && this.state.y === 3 ? 'square active' : 'square '}>{this.state.x ===1 && this.state.y === 3 ? 'B' : ''}</div>
+          <div className={ this.state.x === 2 && this.state.y === 3 ? 'square active' : 'square '}>{this.state.x ===2 && this.state.y === 3 ? 'B' : ''}</div>
+          <div className={ this.state.x === 3 && this.state.y === 3 ? 'square active' : 'square '}>{this.state.x ===3 && this.state.y === 3 ? 'B' : ''}</div>
         </div>
         <div className="info">
           <h3 id="message"></h3>
