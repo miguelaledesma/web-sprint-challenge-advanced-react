@@ -95,7 +95,7 @@ evt.preventDefault()
   }
 
   clickUp = () => {
-    this.state.y <= 2 && this.state.y >= 1 ?
+    this.state.y <= 3 && this.state.y >= 2 ?
     this.setState({
       ...this.state, 
       y: this.state.y -1, 
