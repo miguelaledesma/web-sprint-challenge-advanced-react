@@ -1,6 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'; 
+
+
+
+const initialState = {
+  x: 2,
+  y: 2,
+  steps: 0,
+  email: ''
+}
+
+
+
+
+
 
 export default function AppFunctional(props) {
+
+const [value, setValue] = useState(initialState); 
+
+const handleChange = evt => {
+  setValue({
+    ...value, 
+    email: evt.target.value
+  })
+}
+
+
+
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">
@@ -29,8 +56,8 @@ export default function AppFunctional(props) {
         <button id="reset">reset</button>
       </div>
       <form>
-        <input id="email" type="email" placeholder="type email"></input>
-        <input id="submit" type="submit"></input>
+        <input id="email" type="email" placeholder="type email"  onChange = {handleChange} ></input>
+        <input id="submit" type="submit" ></input>
       </form>
     </div>
   )
