@@ -25,7 +25,7 @@ export default class AppClass extends React.Component {
   }
 
   clickRight = () => { 
-    this.state.x <= 3 && this.state.x >=2 ?
+    this.state.x <= 2 && this.state.x >=1 ?
       this.setState({
         ...this.state, 
         x: this.state.x +1, 
