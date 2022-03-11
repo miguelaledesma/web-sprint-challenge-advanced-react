@@ -52,7 +52,7 @@ const onSubmit = event => {
 
 
 const clickLeft = () => {
-  value.x <= 3 && value.x >=2 ?
+  value.x <= 3  && value.x > 1 ? 
   setValue({
     ...value, 
     x: value.x -1, 
@@ -61,10 +61,75 @@ const clickLeft = () => {
   })
   : setValue({
     ...value, 
-    x: value.x === 3 ? 2 : value.x, 
+    // x: value.x === 3 ? 3 : value.x, 
     message: `You can't go left`
   })
 }
+
+
+
+const clickRight = () => { 
+  value.x <= 2 && value.x >= 1 ?
+  setValue({
+    ...value, 
+    x: value.x +1, 
+    steps: value.steps +1,
+    message: ''
+  })
+  : setValue({
+    ...value, 
+    x: value.x === 3 ? 3 : value.x, 
+    message: `You can't go right`
+  })
+
+}
+
+
+const clickUp = () => {
+  value.y <= 3 && value.y > 1 ?
+  setValue({
+    ...value, 
+    y: value.y - 1, 
+    steps: value.steps +1,
+    message: ''
+  })
+  : setValue({
+    ...value, 
+    y: value.y === 3 ? 2 : value.y, 
+    message: `You can't go up`
+  })
+}
+
+
+const clickDown = () => {
+  value.y <= 2 && value.x >= 1 ?
+  setValue({
+    ...value, 
+    y: value.y + 1, 
+    steps: value.steps +1,
+    message: ''
+  })
+  : setValue({
+    ...value, 
+    y: value.y === 3 ? 3 : value.y, 
+    message: `You can't go down`
+  })
+}
+
+const clickReset = () => {
+    
+  setValue({
+    ...value, 
+    x: 2,
+  y: 2,
+  steps: 0,
+  email: '', 
+  message: ''
+  })
+   
+}
+
+
 
 
 console.log(value)
@@ -91,10 +156,10 @@ console.log(value)
       </div>
       <div id="keypad">
         <button id="left" onClick = {clickLeft}>LEFT</button>
-        <button id="up">UP</button>
-        <button id="right">RIGHT</button>
-        <button id="down">DOWN</button>
-        <button id="reset">reset</button>
+        <button id="up" onClick = {clickUp}>UP</button>
+        <button id="right" onClick = {clickRight}>RIGHT</button>
+        <button id="down" onClick = {clickDown}>DOWN</button>
+        <button id="reset" onClick = {clickReset} >reset</button>
       </div>
       <form onSubmit = {onSubmit}>
         <input id="email" type="email" placeholder="type email"  onChange = {handleChange} ></input>
