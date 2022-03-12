@@ -30,7 +30,8 @@ onSubmit = evt => {
     this.setState({...this.state, email: ''})
   })
   .catch(err => {
-    this.setState({...this.setState, message: err.resp.data.message})
+    
+    this.setState({...this.setState, message: err.response.data.message})
   })
 }
  
