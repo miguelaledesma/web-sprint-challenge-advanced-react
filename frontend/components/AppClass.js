@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'; 
 
-const URL = 'http://localhost:9000/api/result'
+
 
 const initialState = {
   coordinate: {'x':2, 'y':2},
@@ -24,7 +24,7 @@ export default class AppClass extends React.Component {
 onSubmit = evt => {
   evt.preventDefault()
   const postPayload = { "x": this.state.coordinate.x, "y": this.state.coordinate.y, "steps": this.state.steps, "email": this.state.email}
-  axios.post(URL, postPayload)
+  axios.post('http://localhost:9000/api/result', postPayload)
   .then(resp => {
     this.setState({...this.state, message: resp.data.message})
     this.setState({...this.state, email: ''})
