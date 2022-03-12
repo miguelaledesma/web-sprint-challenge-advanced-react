@@ -18,12 +18,12 @@ export default function AppFunctional(props) {
   const onSubmit = evt => {
     evt.preventDefault()
     const postPayload = { "x": coordinate.x, "y": coordinate.y, "steps": steps, "email": email}
-    axios.post('http://localhost:9000/api/result',postPayload)
+    axios.post('http://localhost:9000/api/result', postPayload)
     .then (resp => {
       setMessage(resp.data.message)
     })
     .catch(err => {
-      console.log(err)
+      setMessage(err.response.data.message)
     })
   }
 
