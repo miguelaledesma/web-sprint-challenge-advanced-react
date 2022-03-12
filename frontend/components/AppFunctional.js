@@ -83,19 +83,19 @@ console.log(setCoordinate)
     
     <div id="wrapper" className={props.className}>
       <div className="info">
-        <h3 id="coordinates">Coordinates ({coordinate.x}, {coordinate.y})</h3>
+        <h3 id="coordinates">{`Coordinates (${coordinate.x}, ${coordinate.y})`}</h3>
         <h3 id="steps">You moved {steps} {steps === 1 ? "time" : "times"}</h3>
       </div>
       <div id="grid">
-        <div className= { coordinate.x === 1 && coordinate.y === 1 ? 'square active' : 'square '}>{ coordinate.x === 1 && coordinate.y === 1 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 1 ? 'square active' : 'square '}>{ coordinate.x === 2 && coordinate.y === 1 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 1 ? 'square active' : 'square '}>{ coordinate.x === 3 && coordinate.y === 1 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 1 && coordinate.y === 2 ? 'square active' : 'square '}>{ coordinate.x === 1 && coordinate.y === 2 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 2 ? 'square active' : 'square '}>{ coordinate.x === 2 && coordinate.y === 2 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 2 ? 'square active' : 'square '}>{ coordinate.x === 3 && coordinate.y === 2 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 1 && coordinate.y === 3 ? 'square active' : 'square '}>{ coordinate.x === 1 && coordinate.y === 3 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 3 ? 'square active' : 'square '}>{ coordinate.x === 2 && coordinate.y === 3 ? 'B' : ' '}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 3 ? 'square active' : 'square '}>{ coordinate.x === 3 && coordinate.y === 3 ? 'B' : ' '}</div>
+        <div className= { coordinate.x === 1 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 2 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 3 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 1 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 2 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 3 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 1 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 3 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 2 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 3 ? 'B' : ''}</div>
+        <div className={ coordinate.x === 3 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 3 ? 'B' : ''}</div>
       </div>
       <div className="info">
         <h3 id="message">{message} </h3>
