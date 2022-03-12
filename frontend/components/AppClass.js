@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 const initialState = {
-  coordinate: {'x':2, 'y':2},
+  coordinate: {"x":2, "y":2},
   steps: 0,
   email: '', 
   message: ''
@@ -117,16 +117,16 @@ clickReset = () => {
         </div>
         <div id="grid"> 
         
-          <div className= { `${this.state.coordinate.x === 1 && this.state.coordinate.y === 1 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 1 ? 'B' : ""}</div>
+          <div className= { `${this.state.coordinate.x === 1 && this.state.coordinate.y === 1 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 1 ? "B" : ""}</div>
          
           <div className={`${this.state.coordinate.x === 2 && this.state.coordinate.y === 1 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 2 && this.state.coordinate.y === 1 ? "B" : ""}</div>
-          <div className= {`${this.state.coordinate.x === 3 && this.state.coordinate.y === 1 ? 'square active' : 'square'}` }>{this.state.coordinate.x === 3 && this.state.coordinate.y === 1 ? "B" : ""}</div>
-          <div className={ `${this.state.coordinate.x === 1 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 2 ? "B" : ""}</div>
-          <div className={ `${this.state.coordinate.x === 2 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 2 && this.state.coordinate.y === 2 ? "B" : ""}</div>
-          <div className={ `${this.state.coordinate.x === 3 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 3 && this.state.coordinate.y === 2 ? "B" : ""}</div>
-          <div className={ `${this.state.coordinate.x === 1 && this.state.coordinate.y === 3 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 3 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 3 && this.state.coordinate.y === 1 ? 'square active' : 'square'}` }>{this.state.coordinate.x === 3 && this.state.coordinate.y === 1 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 1 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 2 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 2 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 2 && this.state.coordinate.y === 2 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 3 && this.state.coordinate.y === 2 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 3 && this.state.coordinate.y === 2 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 1 && this.state.coordinate.y === 3 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 1 && this.state.coordinate.y === 3 ? "B" : ""}</div>
           <div className={`${this.state.coordinate.x === 2 && this.state.coordinate.y === 3 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 2 && this.state.coordinate.y === 3 ? "B" : ""}</div>
-          <div className={ `${this.state.coordinate.x === 3 && this.state.coordinate.y === 3 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 3 && this.state.coordinate.y === 3 ? "B" : ""}</div>
+          <div className={`${this.state.coordinate.x === 3 && this.state.coordinate.y === 3 ? 'square active' : 'square'}`}>{this.state.coordinate.x === 3 && this.state.coordinate.y === 3 ? "B" : ""}</div>
         </div>
         <div className="info">
           <h3 id="message">{this.state.message}</h3>

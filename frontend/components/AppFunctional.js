@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function AppFunctional(props) {
 
-  const [coordinate, setCoordinate] = useState({'x':2, 'y':2})
+  const [coordinate, setCoordinate] = useState({"x":2, "y":2})
   const [steps, setSteps] = useState(0)
   const [message, setMessage] = useState('')
   const [email, setEmail] = useState('')
@@ -22,7 +22,9 @@ export default function AppFunctional(props) {
     .then (resp => {
       setMessage(resp.data.message)
     })
-    .catch(err => {})
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   const clickRight = () => {
@@ -74,6 +76,7 @@ export default function AppFunctional(props) {
     setMessage('')
     setEmail('')
   }
+  
 
 
 
@@ -87,15 +90,15 @@ console.log(setCoordinate)
         <h3 id="steps">You moved {steps} {steps === 1 ? "time" : "times"}</h3>
       </div>
       <div id="grid">
-        <div className= { coordinate.x === 1 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 1 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 1 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 1 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 1 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 2 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 2 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 2 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 1 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 3 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 2 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 3 ? 'B' : ''}</div>
-        <div className={ coordinate.x === 3 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 3 ? 'B' : ''}</div>
+        <div className={coordinate.x === 1 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={coordinate.x === 2 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={coordinate.x === 3 && coordinate.y === 1 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 1 ? 'B' : ''}</div>
+        <div className={coordinate.x === 1 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={coordinate.x === 2 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={coordinate.x === 3 && coordinate.y === 2 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 2 ? 'B' : ''}</div>
+        <div className={coordinate.x === 1 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 1 && coordinate.y === 3 ? 'B' : ''}</div>
+        <div className={coordinate.x === 2 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 2 && coordinate.y === 3 ? 'B' : ''}</div>
+        <div className={coordinate.x === 3 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 3 ? 'B' : ''}</div>
       </div>
       <div className="info">
         <h3 id="message">{message} </h3>
@@ -108,7 +111,7 @@ console.log(setCoordinate)
         <button id="reset" onClick = {resetClick}>reset</button>
       </div>
       <form onSubmit = {onSubmit} >
-        <input id="email" onChange = {inputChange} value = {email} type="email" placeholder="type email"  ></input>
+        <input id="email" onChange = {inputChange}  value = {email} type="email" placeholder="type email" ></input>
         <input id="submit" type="submit" ></input>
       </form>
     </div>
