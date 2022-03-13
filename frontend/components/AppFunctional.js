@@ -34,7 +34,7 @@ export default function AppFunctional(props) {
     if (coordinate.x < 3) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "x": coordinate.x + 1})
-      setMessage(' ');
+      setMessage('');
     }
     else {
       setMessage("You can't go right ")
@@ -45,7 +45,7 @@ export default function AppFunctional(props) {
     if (coordinate.x > 1) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "x": coordinate.x - 1})
-      setMessage(' ');
+      setMessage('');
     }
     else {
       setMessage("You can't go left")
@@ -56,7 +56,7 @@ export default function AppFunctional(props) {
     if (coordinate.y > 1) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "y": coordinate.y - 1})
-      setMessage(' ');
+      setMessage('');
     }
     else {
       setMessage("You can't go up")
@@ -74,7 +74,7 @@ export default function AppFunctional(props) {
     }
   }
   const resetClick = () => {
-    setCoordinate({'x':2, 'y':2}) 
+    setCoordinate({'x':2,'y':2}) 
     setSteps(0);
     setMessage('')
     setEmail('')
@@ -107,15 +107,15 @@ console.log(setCoordinate)
         <h3 id="message">{message}</h3>
       </div>
       <div id="keypad">
-        <button id="left" onClick = {clickLeft} >LEFT</button>
-        <button id="up" onClick = {clickUp} >UP</button>
+        <button id="left" onClick = {clickLeft}>LEFT</button>
+        <button id="up" onClick = {clickUp}>UP</button>
         <button id="right"onClick = {clickRight} >RIGHT</button>
         <button id="down" onClick = {clickDown} >DOWN</button>
         <button id="reset" onClick = {resetClick}>reset</button>
       </div>
       <form onSubmit = {onSubmit} >
         <input id="email" onChange = {inputChange}  value = {email} type="email" placeholder="type email" ></input>
-        <input id="submit" type="submit" ></input>
+        <input id="submit" type="submit"></input>
       </form>
     </div>
   )
