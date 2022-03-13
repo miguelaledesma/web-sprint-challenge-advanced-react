@@ -34,10 +34,10 @@ export default function AppFunctional(props) {
     if (coordinate.x < 3) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "x": coordinate.x + 1})
-      setMessage('');
+      setMessage(' ');
     }
     else {
-      setMessage("You can't go right")
+      setMessage("You can't go right ")
     }
   }
 
@@ -45,7 +45,7 @@ export default function AppFunctional(props) {
     if (coordinate.x > 1) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "x": coordinate.x - 1})
-      setMessage('');
+      setMessage(' ');
     }
     else {
       setMessage("You can't go left")
@@ -56,7 +56,7 @@ export default function AppFunctional(props) {
     if (coordinate.y > 1) {
       setSteps(steps + 1 )
       setCoordinate({ ...coordinate, "y": coordinate.y - 1})
-      setMessage('');
+      setMessage(' ');
     }
     else {
       setMessage("You can't go up")
@@ -104,7 +104,7 @@ console.log(setCoordinate)
         <div className={coordinate.x === 3 && coordinate.y === 3 ? 'square active' : 'square'}>{ coordinate.x === 3 && coordinate.y === 3 ? 'B' : ''}</div>
       </div>
       <div className="info">
-        <h3 id="message">{message} </h3>
+        <h3 id="message">{message}</h3>
       </div>
       <div id="keypad">
         <button id="left" onClick = {clickLeft} >LEFT</button>
