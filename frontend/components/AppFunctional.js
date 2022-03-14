@@ -37,7 +37,7 @@ export default function AppFunctional(props) {
       setMessage('');
     }
     else {
-      setMessage("You can't go right ")
+      setMessage("You can't go right")
     }
   }
 
