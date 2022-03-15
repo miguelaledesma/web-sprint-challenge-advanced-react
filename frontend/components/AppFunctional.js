@@ -21,7 +21,7 @@ export default function AppFunctional(props) {
     axios.post('http://localhost:9000/api/result', postPayload)
     .then (resp => {
       setMessage(resp.data.message)
-      
+      setEmail('')
     })
     .catch(err => {
       setMessage(err.response.data.message)
